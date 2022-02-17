@@ -24,7 +24,7 @@ export default {
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
         &_title-color {
-            color: #F25D50;
+            color: $primaryColor;
         }
     }
 </style>

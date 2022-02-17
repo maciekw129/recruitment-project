@@ -29,6 +29,10 @@ export default createStore({
         },
         PREVIOUS_PAGE (state) {
             state.currentPage -= 1;
+        },
+        SET_PAGE (state, number) {
+            console.log(number);
+            state.currentPage = number.number;
         }
     },
 
@@ -37,7 +41,6 @@ export default createStore({
             try {
                 const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
                 const data = sliceToChunks(response.data);
-                console.log(data)
                 commit('SET_POSTS', data);
             } catch(error) {
                 console.log(error);
@@ -48,6 +51,9 @@ export default createStore({
         },
         previousPage ({ commit }) {
             commit('PREVIOUS_PAGE');
+        },
+        setPage ({ commit }, number) {
+            commit('SET_PAGE', number);
         }
     }
 

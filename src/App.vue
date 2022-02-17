@@ -1,17 +1,20 @@
 <template>
     <Header/>
     <PostsList/>
+    <PaginationBar />
 </template>
 
 <script>
 import Header from './components/Header.vue';
 import PostsList from './components/PostsList.vue';
+import PaginationBar from './components/PaginationBar.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     PostsList,
+    PaginationBar,
   },
 }
 </script>
