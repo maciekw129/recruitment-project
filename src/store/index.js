@@ -10,6 +10,9 @@ export default createStore({
     getters: {
         posts: state => {
             return state.posts;
+        },
+        pages: state => {
+            return state.posts.length;
         }
     },
 
@@ -24,6 +27,7 @@ export default createStore({
             try {
                 const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
                 const data = sliceToChunks(response.data);
+                console.log(data);
                 commit('SET_POSTS', data);
             } catch(error) {
                 console.log(error);

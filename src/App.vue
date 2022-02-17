@@ -27,7 +27,6 @@ export default {
   };
 
   #app {
-    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -35,9 +34,7 @@ export default {
   }
 
   body {
-    background: linear-gradient(200deg, $primaryColor, $secondaryColor) fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: hsl(0, 0, 95);
     width: 100%;
   };
 </style>
