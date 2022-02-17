@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss">
     .post {
-        width: 80%;
+        width: 90%;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         border-radius: 15px;
         background-color: #ffffff;

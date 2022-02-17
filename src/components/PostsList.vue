@@ -17,22 +17,17 @@ export default {
   components: {
       Post,
   },
-
-  data() {
-      return {
-          currentPage: 1,
-      };
-  },
-
   computed: {
       posts() {
           return this.$store.getters.posts[this.currentPage - 1];
       },
       pages() {
           return this.$store.getters.pages;
+      },
+      currentPage() {
+          return this.$store.getters.currentPage;
       }
   },
-
   created() {
       this.$store.dispatch('fetchPosts');
   }
@@ -44,6 +39,7 @@ export default {
         display: grid;
         justify-items: center;
         width: 100%;
+        padding: 0 2rem;
         margin: 5rem 0;
 
         @media only screen and (min-width: 500px) {
