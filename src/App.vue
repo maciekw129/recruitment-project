@@ -1,12 +1,18 @@
 <template>
-  <h1 class="header">Post's viewer!</h1>
+    <Header/>
+    <PostsList/>
 </template>
 
 <script>
+import Header from './components/Header.vue';
+import PostsList from './components/PostsList.vue';
+
 export default {
   name: 'App',
   components: {
-  }
+    Header,
+    PostsList,
+  },
 }
 </script>
 
@@ -20,14 +26,18 @@ export default {
     font-family: $primaryFont;
   };
 
+  #app {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   body {
     background: linear-gradient(200deg, $primaryColor, $secondaryColor) fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    width: 100%;
   };
 </style>
