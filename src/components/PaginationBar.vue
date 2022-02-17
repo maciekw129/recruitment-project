@@ -85,18 +85,8 @@ export default {
         }
 
         &_button {
-            background: none;
-            border: 1.5px solid $primaryColor;
-            padding: 0.3rem 1rem;
+            @extend %styled-button;
             margin: 0 1rem; 
-            border-radius: 50px;
-            transition: background-color 0.2s linear;
-
-            &:hover {
-                cursor: pointer;
-                background-color: $primaryColor;
-                transition: background-color 0.2s linear;
-            }
         }};
     
     .underline {

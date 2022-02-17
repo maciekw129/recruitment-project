@@ -1,8 +1,9 @@
 <template>
     <div class="postsList">
         <Post
-            v-for="post in posts"
+            v-for="(post, index) in posts"
             :key='post.id'
+            :index='index'
             :title='post.title'
             :content='post.body'
         ></Post>
@@ -11,7 +12,7 @@
 
 <script>
 import Post from './Post.vue';
-
+import sliceToChunks from '../helpers/sliceToChunks';
 export default {  
   name: 'PostsList',
   components: {
@@ -19,10 +20,8 @@ export default {
   },
   computed: {
       posts() {
-          return this.$store.getters.posts[this.currentPage - 1];
-      },
-      pages() {
-          return this.$store.getters.pages;
+          const posts = sliceToChunks(this.$store.getters.posts);
+          return posts[this.currentPage - 1];
       },
       currentPage() {
           return this.$store.getters.currentPage;

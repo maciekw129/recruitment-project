@@ -1,6 +1,5 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
-import sliceToChunks from '../helpers/sliceToChunks';
 
 export default createStore({
     state: {
@@ -13,7 +12,7 @@ export default createStore({
             return state.posts;
         },
         pages: state => {
-            return state.posts.length;
+            return Math.floor(state.posts.length / 10);
         },
         currentPage: state => {
             return state.currentPage;
@@ -31,17 +30,16 @@ export default createStore({
             state.currentPage -= 1;
         },
         SET_PAGE (state, number) {
-            console.log(number);
             state.currentPage = number.number;
-        }
+        },
+
     },
 
     actions: {
         async fetchPosts ({ commit }) {
             try {
                 const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
-                const data = sliceToChunks(response.data);
-                commit('SET_POSTS', data);
+                commit('SET_POSTS', response.data);
             } catch(error) {
                 console.log(error);
             }
@@ -54,7 +52,7 @@ export default createStore({
         },
         setPage ({ commit }, number) {
             commit('SET_PAGE', number);
-        }
+        },
     }
 
 });

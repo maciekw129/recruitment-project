@@ -12,7 +12,6 @@ export default {
 
 <style lang="scss">
 @import '../assets/_variables.scss';
-
     .header {
         width: 100%;
         height: 4rem;
