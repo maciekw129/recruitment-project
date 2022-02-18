@@ -25,6 +25,7 @@ export default {
       content: String,
       index: Number,
       userId: Number,
+      length: Number,
   },
   data() {
       return {
@@ -34,6 +35,9 @@ export default {
   },
   methods: {
       deletePost() {
+          if(this.length === 1) {
+              this.$store.dispatch('previousPage');
+          }
           this.$store.dispatch('deletePost', {
               number: this.index,
           })

@@ -7,6 +7,7 @@
             :title='post.title'
             :content='post.body'
             :userId='post.userId'
+            :length='chunkedPosts.length'
         ></Post>
     </div>
     <Loading v-else/>
