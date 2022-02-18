@@ -61,7 +61,7 @@ export default {
 @import '../assets/_variables.scss';
 
     .pagination-bar {
-        margin: 1rem 0;
+        margin-bottom: 1rem;
         display: flex;
         flex-direction: column;
         justify-content: center;

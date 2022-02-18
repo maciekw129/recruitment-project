@@ -6,6 +6,7 @@
             :index='index'
             :title='post.title'
             :content='post.body'
+            :userId='post.userId'
         ></Post>
     </div>
 </template>
@@ -27,9 +28,6 @@ export default {
           return this.$store.getters.currentPage;
       }
   },
-  created() {
-      this.$store.dispatch('fetchPosts');
-  }
 }
 </script>
 
@@ -37,9 +35,10 @@ export default {
     .postsList {
         display: grid;
         justify-items: center;
+        align-items: start;
         width: 100%;
         padding: 0 2rem;
-        margin: 5rem 0;
+        margin: 3rem 0;
 
         @media only screen and (min-width: 500px) {
             grid-template-columns: 1fr 1fr;

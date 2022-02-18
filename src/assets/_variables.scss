@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 $primaryColor: #F25D50;
+$secondaryColor: #C5D930;
 $primaryFont: 'Lato', sans-serif;
 
 %styled-button {
@@ -9,7 +10,7 @@ $primaryFont: 'Lato', sans-serif;
     padding: 0.3rem 1rem;
     border-radius: 50px;
     transition: background-color 0.2s linear;
-
+    
     &:hover {
         cursor: pointer;
         background-color: $primaryColor;

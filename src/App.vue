@@ -16,6 +16,9 @@ export default {
     PostsList,
     PaginationBar,
   },
+  created() {
+      this.$store.dispatch('fetchPosts');
+  },
 }
 </script>
 
