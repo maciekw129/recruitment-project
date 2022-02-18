@@ -1,7 +1,7 @@
 <template>
-    <div class="postsList">
+    <div class="postsList" v-if="chunkedPosts">
         <Post
-            v-for="(post, index) in posts"
+            v-for="(post, index) in chunkedPosts"
             :key='post.id'
             :index='index'
             :title='post.title'
@@ -9,24 +9,31 @@
             :userId='post.userId'
         ></Post>
     </div>
+    <Loading v-else/>
+    <PaginationBar v-if="chunkedPosts"/>
 </template>
 
 <script>
 import Post from './Post.vue';
 import sliceToChunks from '../helpers/sliceToChunks';
+import Loading from './Loading.vue';
+import PaginationBar from './PaginationBar.vue';
+
 export default {  
   name: 'PostsList',
   components: {
       Post,
+      Loading,
+      PaginationBar,
   },
   computed: {
-      posts() {
-          const posts = sliceToChunks(this.$store.getters.posts);
-          return posts[this.currentPage - 1];
+      chunkedPosts() {
+          const chunked = sliceToChunks(this.$store.getters.posts);
+          return chunked[this.currentPage - 1];
       },
       currentPage() {
           return this.$store.getters.currentPage;
-      }
+      },
   },
 }
 </script>

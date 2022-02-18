@@ -1,28 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+<template>
+    <div class="loading">
+      <div class="loading_one"></div>
+      <div class="loading_two"></div>
+      <div class="loading_three"></div>
+    </div>
+</template>
 
-$primaryColor: #F25D50;
-$secondaryColor: #C5D930;
-$primaryFont: 'Lato', sans-serif;
-
-%styled-button {
-    background: none;
-    border: 1.5px solid $primaryColor;
-    padding: 0.3rem 1rem;
-    border-radius: 50px;
-    transition: background-color 0.2s linear;
-    
-    &:hover {
-        cursor: pointer;
-        background-color: $primaryColor;
-        transition: background-color 0.2s linear;
-    }
-}
-
-%loading {
+<style lang="scss">
+    .loading {
     display: flex;
     justify-content: space-evenly;
     width: 100px;
-    margin-top: 0.5rem;
+    margin-top: 10rem;
 
     & div {
         content: '';
@@ -53,3 +42,4 @@ $primaryFont: 'Lato', sans-serif;
         animation-delay: 1s;
     }
 };
+</style>

@@ -4,12 +4,6 @@
     </div>
 </template>
 
-<script>
-export default {
-  name: 'Header',
-}
-</script>
-
 <style lang="scss">
 @import '../assets/_variables.scss';
     .header {

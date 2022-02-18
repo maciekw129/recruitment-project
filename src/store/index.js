@@ -5,6 +5,7 @@ export default createStore({
     state: {
         posts: [],
         currentPage: 1,
+        isLoading: true,
     },
 
     getters: {
@@ -16,7 +17,7 @@ export default createStore({
         },
         currentPage: state => {
             return state.currentPage;
-        }
+        },
     },
 
     mutations: {
@@ -41,8 +42,9 @@ export default createStore({
     actions: {
         async fetchPosts ({ commit }) {
             try {
-                const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
+                const response = await axios.get('http://jsonplaceholder.typicode.com/posts')
                 commit('SET_POSTS', response.data);
+                this.isLoading
             } catch(error) {
                 console.log(error);
             }

@@ -29,7 +29,6 @@
 <script>
 
 export default {
-  name: 'PaginationBar',
   computed: {
       pages() {
           return this.$store.getters.pages;
@@ -81,6 +80,10 @@ export default {
                 cursor: pointer;
                 color: $primaryColor;
                 transition: color 0.2s linear;
+            }
+
+            @media only screen and (max-width: 350px) {
+                padding: 0 0.1rem;
             }
         }
 

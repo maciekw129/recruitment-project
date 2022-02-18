@@ -20,7 +20,6 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'Post',
   props: {
       title: String,
       content: String,
@@ -49,7 +48,7 @@ export default {
           return this.isShortened ? 'show more' : 'hide';
       },
   },
-  mounted () {
+  beforeMount() {
       axios.get('https://jsonplaceholder.typicode.com/users/' + this.userId)
       .then(response => {
           this.authorName = response.data.name;
