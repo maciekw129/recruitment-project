@@ -42,7 +42,7 @@ export default createStore({
     actions: {
         async fetchPosts ({ commit }) {
             try {
-                const response = await axios.get('http://jsonplaceholder.typicode.com/posts')
+                const response = await axios.get('https://jsonplaceholder.typicode.com/posts')
                 commit('SET_POSTS', response.data);
                 this.isLoading
             } catch(error) {
