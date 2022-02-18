@@ -12,7 +12,7 @@ export default createStore({
             return state.posts;
         },
         pages: state => {
-            return Math.floor(state.posts.length / 10);
+            return Math.ceil(state.posts.length / 10);
         },
         currentPage: state => {
             return state.currentPage;
@@ -32,6 +32,9 @@ export default createStore({
         SET_PAGE (state, number) {
             state.currentPage = number.number;
         },
+        DELETE_POST (state, payload) {
+            state.posts.splice(payload, 1);
+        }
 
     },
 
@@ -53,6 +56,9 @@ export default createStore({
         setPage ({ commit }, number) {
             commit('SET_PAGE', number);
         },
+        deletePost ({commit}, payload) {
+            commit('DELETE_POST', payload);
+        }
     }
 
 });
